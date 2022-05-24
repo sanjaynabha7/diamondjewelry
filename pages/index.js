@@ -21,7 +21,7 @@ export default function Home({ products, homeBlog }) {
   )
 }
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const res = await fetch(`${baseUrl}/api/products`)
   const data = await res.json();
 

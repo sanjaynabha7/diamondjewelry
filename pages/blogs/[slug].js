@@ -152,18 +152,18 @@ const BlogDetails = ({ item, Categories }) => {
 }
 
 
-export const getStaticPaths = async () => {
-    const res = await fetch(`${baseUrl}/api/blogs`)
-    const data = await res.json();
-    let paths = data.map(res => {
-        return {
-            params: { slug: res.slug }
-        }
-    })
-    return { paths, fallback: false }
-}
+// export const getStaticPaths = async () => {
+//     const res = await fetch(`${baseUrl}/api/blogs`)
+//     const data = await res.json();
+//     let paths = data.map(res => {
+//         return {
+//             params: { slug: res.slug }
+//         }
+//     })
+//     return { paths, fallback: false }
+// }
 
-export const getStaticProps = async ({ params }) => {
+export const getServerSideProps = async ({ params }) => {
     const slug = params.slug
     const res = await fetch(`${baseUrl}/api/blogs`)
     const data = await res.json();
