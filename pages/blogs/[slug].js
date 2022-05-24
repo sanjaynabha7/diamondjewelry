@@ -169,10 +169,10 @@ export const getStaticProps = async ({ params }) => {
     const data = await res.json();
     const filter = data.filter((res) => res.slug === slug)[0]
 
-    const category = await fetch(`${baseUrl}/api/blogs-categories`)
-    const dataCategory = await category.json();
+    // const category = await fetch(`${baseUrl}/api/blogs-categories`)
+    // const dataCategory = await category.json();
     return {
-        props: { item: filter, Categories: dataCategory },
+        props: { item: filter},
     }
 }
 
