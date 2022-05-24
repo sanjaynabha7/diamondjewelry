@@ -130,7 +130,7 @@ const ProductDetails = ({Cart, item, addToCart }) => {
 
 
 export const getStaticPaths = async () => {
-    const res = await fetch('http://localhost:3000/api/products')
+    const res = await fetch('https://diamondjewelry.vercel.app/api/products')
     const data = await res.json();
     let paths = data.map(res => {
         return {
@@ -143,7 +143,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }) => {
     const slug = params.slug
-    const res = await fetch(`http://localhost:3000/api/products`)
+    const res = await fetch(`https://diamondjewelry.vercel.app/api/products`)
     const data = await res.json();
     const filter = data.filter((res) => res.slug === slug)[0]
     return {
