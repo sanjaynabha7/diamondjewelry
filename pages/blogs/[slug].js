@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link';
+import baseUrl from '../../helper/baseUrl'
 const BlogDetails = ({ item, Categories }) => {
 
     return (
@@ -152,7 +153,7 @@ const BlogDetails = ({ item, Categories }) => {
 
 
 export const getStaticPaths = async () => {
-    const res = await fetch('https://diamondjewelry.vercel.app/api/blogs')
+    const res = await fetch(`${baseUrl}/api/blogs`)
     const data = await res.json();
     let paths = data.map(res => {
         return {
@@ -164,11 +165,11 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }) => {
     const slug = params.slug
-    const res = await fetch(`https://diamondjewelry.vercel.app/api/blogs`)
+    const res = await fetch(`${baseUrl}/api/blogs`)
     const data = await res.json();
     const filter = data.filter((res) => res.slug === slug)[0]
 
-    const category = await fetch(`https://diamondjewelry.vercel.app/api/blogs-categories`)
+    const category = await fetch(`${baseUrl}/api/blogs-categories`)
     const dataCategory = await category.json();
     return {
         props: { item: filter, Categories: dataCategory },

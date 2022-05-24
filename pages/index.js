@@ -5,6 +5,7 @@ import About from './about-us'
 import Blogs from '../components/blogs'
 import Offers from './offers'
 import Banners from '../components/banners'
+import baseUrl from '../helper/baseUrl'
 export default function Home({ products, homeBlog }) {
   return (
     <>
@@ -21,7 +22,7 @@ export default function Home({ products, homeBlog }) {
 }
 
 export const getStaticProps = async () => {
-  const res = await fetch('https://diamondjewelry.vercel.app/api/products')
+  const res = await fetch(`${baseUrl}/api/products`)
   const data = await res.json();
 
   // const blogRes = await fetch('http://localhost:3000/api/blogs')

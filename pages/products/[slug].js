@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Increment, Decrement } from '../../store/actions/counter'
 import { connect } from 'react-redux'
 import { addToCart } from '../../store/actions/cart'
+import baseUrl from '../../helper/baseUrl'
 const ProductDetails = ({Cart, item, addToCart }) => {
     
     const [totalAmount, setTotalAmount] = useState(0)
@@ -130,7 +131,7 @@ const ProductDetails = ({Cart, item, addToCart }) => {
 
 
 export const getStaticPaths = async () => {
-    const res = await fetch('https://diamondjewelry.vercel.app/api/products')
+    const res = await fetch(`${baseUrl}/api/products`)
     const data = await res.json();
     let paths = data.map(res => {
         return {
@@ -143,7 +144,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }) => {
     const slug = params.slug
-    const res = await fetch(`https://diamondjewelry.vercel.app/api/products`)
+    const res = await fetch(`${baseUrl}/api/products`)
     const data = await res.json();
     const filter = data.filter((res) => res.slug === slug)[0]
     return {

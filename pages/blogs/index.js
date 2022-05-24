@@ -1,5 +1,6 @@
 import React from 'react'
 import Blogs from '../../components/blogs'
+import baseUrl from '../../helper/baseUrl'
 const BlogPage = ({ data }) => {
   return (
     <>
@@ -10,7 +11,7 @@ const BlogPage = ({ data }) => {
 }
 
 export const getStaticProps = async () => {
-  const blogRes = await fetch('https://diamondjewelry.vercel.app/api/blogs')
+  const blogRes = await fetch(`${baseUrl}/api/blogs`)
 
   const BlogData = await blogRes.json();
 
