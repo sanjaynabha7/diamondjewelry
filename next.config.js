@@ -1,6 +1,5 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
+module.exports = {
+  env:{
+    DATABASE : 'mongodb+srv://Nabha123:Nabha123@cluster0.iafkk.mongodb.net/srjewelry?retryWrites=true&w=majority'
+  }
 }
-
-module.exports = nextConfig
