@@ -10,27 +10,27 @@ export default function Home({ products, homeBlog }) {
     <>
       <Banners></Banners>
       <main className={styles.main}>
-        {/* <HomeProducts products={products} /> */}
+        <HomeProducts products={products} />
         <About></About>
         <Offers></Offers>
-        {/* <Blogs BlogData={homeBlog} homePage={true}/> */}
+        <Blogs BlogData={homeBlog} homePage={true}/>
         <Testimonials></Testimonials>
       </main>
     </>
   )
 }
 
-// export const getStaticProps = async () => {
-//   const res = await fetch('http://localhost:3000/api/products')
-//   const data = await res.json();
+export const getStaticProps = async () => {
+  const res = await fetch('https://diamondjewelry.vercel.app/api/products')
+  const data = await res.json();
 
-//   const blogRes = await fetch('http://localhost:3000/api/blogs')
-//   const BlogData = await blogRes.json();
-//   const homeBlog = BlogData.slice(0, 2)
+  const blogRes = await fetch('https://diamondjewelry.vercel.app/api/blogs')
+  const BlogData = await blogRes.json();
+  const homeBlog = BlogData.slice(0, 2)
 
 
-//   return {
-//     props: { products: data, homeBlog },
-//   }
-// }
+  return {
+    props: { products: data, homeBlog },
+  }
+}
 
